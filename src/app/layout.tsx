@@ -1,5 +1,6 @@
 'use client';
 
+import { appWithTranslation } from 'next-i18next';
 import { ConfigProvider, Layout } from 'antd';
 import { theme } from '../theme/themeConfig';
 import './globals.css'; // Ensure you import Ant Design CSS
@@ -35,14 +36,20 @@ function InnerLayout({ children }: { children: React.ReactNode }) {
     setIsClient(true);
   }, []);
 
-  const isAuthPage = pathname === '/login' || pathname === '/signup';
+  const isAuthPage = pathname === '/login';
 
   return (
     <html lang="en">
       <body>
         <ConfigProvider theme={theme}>
           {isAuthPage ? (
-            <UnauthenticatedLayout>{children}</UnauthenticatedLayout>
+            <>
+              {isClient ? (
+                <UnauthenticatedLayout>{children}</UnauthenticatedLayout>
+              ) : (
+                <Placeholder />
+              )}
+            </>
           ) : (
             <ProtectedRoute>
               {isClient ? (

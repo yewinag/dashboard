@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { useRef } from 'react';
 import styled from 'styled-components';
 
-export default function Home() {
+function Home() {
   const buttonRef = useRef(null);
   return (
     <div>
@@ -18,3 +18,5 @@ export default function Home() {
   );
 }
 const StyledButton = styled(Button)``;
+
+export default Home;

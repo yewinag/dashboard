@@ -1,9 +1,10 @@
+import { useAuth } from '@/app/context/AuthContext';
 import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme } from 'antd';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -11,11 +12,15 @@ const { Sider } = Layout;
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
+  const { logout } = useAuth();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const handleMenu = (e: { key: string }) => {
     router.push(e.key);
+  };
+  const handleLogout = () => {
+    logout();
   };
   return (
     <SiderLayout trigger={null} collapsible collapsed={collapsed}>
@@ -43,6 +48,9 @@ const Sidebar = () => {
           },
         ]}
       />
+      <Layout>
+        <Button onClick={() => handleLogout()}>Logout</Button>
+      </Layout>
     </SiderLayout>
   );
 };

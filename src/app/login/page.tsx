@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { LoginForm } from '@/components/form/Login';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -19,27 +20,11 @@ const Login = () => {
     });
     const data = await response.json();
     if (data.token) {
-      login(data.user, data.token);
+      login(data.user);
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
-  );
+  return <LoginForm />;
 };
 
 export default Login;
