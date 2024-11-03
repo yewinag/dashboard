@@ -1,5 +1,8 @@
-function Header() {
-  return <div>Header</div>;
+import { Layout } from 'antd';
+const { Header } = Layout;
+
+function HeaderLayout() {
+  return <Header style={{ padding: 0 }}></Header>;
 }
 
-export default Header;
+export default HeaderLayout;
