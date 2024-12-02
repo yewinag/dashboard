@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../app/context/AuthContext';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -8,10 +8,14 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Check authentication status on initial load and on route change
-    if (!user) {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient && !user) {
       router.push('/login');
     }
   }, [user, router, pathname]);

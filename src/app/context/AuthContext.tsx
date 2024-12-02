@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     // Load user and token from localStorage if available
-    // const storedUser = localStorage.getItem('user');
-    // const storedToken = localStorage.getItem('token');
-    // if (storedUser && storedToken) {
-    //   setUser(JSON.parse(storedUser));
-    //   setToken(storedToken);
-    // }
+    const storedUser = localStorage.getItem('user');
+    const storedToken = localStorage.getItem('token');
+    if (storedUser && storedToken) {
+      setUser(JSON.parse(storedUser));
+      setToken(storedToken);
+    }
   }, []);
 
   const login = (userData: IAuth) => {
