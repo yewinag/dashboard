@@ -15,13 +15,15 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    if (isClient && !user) {
-      router.push('/login');
+    if (isClient) {
+      if (!user) {
+        router.push('/login');
+      }
     }
-  }, [user, router, pathname]);
+  }, [isClient, user, router, pathname]);
 
   if (!user) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return <>{children}</>;

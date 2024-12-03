@@ -1,15 +1,12 @@
-import { Button, Space, Switch, Table, Tooltip, Select } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Table, Tooltip } from 'antd';
 
 import type { ColumnsType } from 'antd/es/table';
-
-import { EditOutlined } from '@ant-design/icons';
 
 import { memo } from 'react';
 
 import dayjs from 'dayjs';
-import { IClient } from '@/interfaces/client';
-import { enumReferred } from '@/config/enum';
+import { IClient } from '../../interfaces/client';
+import { enumReferred } from '../../config/enum';
 import Link from 'next/link';
 
 interface IProps {

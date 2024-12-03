@@ -1,19 +1,18 @@
 'use client';
 
-import { appWithTranslation } from 'next-i18next';
 import { ConfigProvider, Layout } from 'antd';
 import { theme } from '../theme/themeConfig';
 import './globals.css'; // Ensure you import Ant Design CSS
 import { Content } from 'antd/es/layout/layout';
-import HeaderLayout from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
+import HeaderLayout from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import styled from 'styled-components';
-import Placeholder from '@/components/Placeholder';
+import Placeholder from '../components/Placeholder';
 import { useEffect, useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import ProtectedRoute from '@/components/ProtectedRoute';
+import ProtectedRoute from '../components/ProtectedRoute';
 import { usePathname } from 'next/navigation';
-import UnauthenticatedLayout from '@/components/UnAuthenticatedLayout';
+import UnauthenticatedLayout from '../components/UnAuthenticatedLayout';
 
 export default function RootLayout({
   children,

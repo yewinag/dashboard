@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { LoginForm } from '@/components/form/Login';
+import { LoginForm } from '../../components/form/Login';
 
 const Login = () => {
   const [email, setEmail] = useState('');

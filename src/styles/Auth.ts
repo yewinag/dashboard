@@ -1,4 +1,4 @@
-import { device } from '@/theme/themeConfig';
+import { device } from '../theme/themeConfig';
 import styled from 'styled-components';
 
 export const StyledAuth = styled.section`

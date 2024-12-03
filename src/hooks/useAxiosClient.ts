@@ -6,7 +6,9 @@ const useAxiosClient = (): AxiosInstance => {
   const { token } = useAuth(); // Get the token from the context
 
   const axiosClient = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API,
+    baseURL:
+      process.env.NEXT_PUBLIC_API_URL ||
+      'https://stg-v2.careconnectmyanmar.com',
 
     headers: {
       'Content-Type': 'application/json',

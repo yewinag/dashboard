@@ -1,8 +1,8 @@
 'use client';
-import { ClientTable } from '@/components/patients/Table';
-import { initPage } from '@/config/constants';
+import { ClientTable } from '../../components/patients/Table';
+import { initPage } from '../../config/constants';
 import { enumFilter } from '@/config/enum';
-import useAxiosClient from '@/hooks/useAxiosClient';
+import useAxiosClient from '../../hooks/useAxiosClient';
 import { IClient } from '@/interfaces/client';
 import { IPagination } from '@/interfaces/search';
 import { useEffect, useState } from 'react';

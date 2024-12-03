@@ -1,12 +1,12 @@
 import { memo } from 'react';
 import * as Yup from 'yup';
 import { Input, Form, Row, Col, Button } from 'antd';
-import { useYup } from '@/validations';
-import { ILogin } from '@/interfaces';
-import { StyledAuth } from '@/styles/Auth';
-import { useAuth } from '@/app/context/AuthContext';
-import useAxiosClient from '@/hooks/useAxiosClient';
-import Link from 'next/link';
+import { useYup } from '../../validations';
+import { ILogin } from '../../interfaces';
+import { StyledAuth } from '../../styles/Auth';
+import { useAuth } from '../../app/context/AuthContext';
+import useAxiosClient from '../../hooks/useAxiosClient';
+
 const initValue: ILogin = {
   email: '',
   password: '',
