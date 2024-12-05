@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosHeaders } from 'axios';
 import queryString from 'query-string';
-import { useAuth } from '../app/context/AuthContext'; // Adjust the import path as needed
+import { useAuth } from '../app/context/AuthContext';
 
 const useAxiosClient = (): AxiosInstance => {
-  const { token } = useAuth(); // Get the token from the context
+  const { token } = useAuth();
 
   const axiosClient = axios.create({
     baseURL:
@@ -32,10 +32,7 @@ const useAxiosClient = (): AxiosInstance => {
       return response;
     },
     async (error: any) => {
-      console.log(error.response.status);
       if (error?.response?.status === 403) {
-        console.log(error?.response?.status);
-        // await store.dispatch(logout());
       } else {
         throw error.response.data;
       }
